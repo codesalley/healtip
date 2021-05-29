@@ -8,5 +8,5 @@ export const getToken = () => {
   return token;
 };
 
-export const saveUser = (user) => localStorage.setItem('s_profile', user);
-export const getUser = () => localStorage.getItem('s_profile');
+export const saveUser = (user) => localStorage.setItem('s_profile', JSON.stringify(user));
+export const getUser = () => JSON.parse(localStorage.getItem('s_profile'));

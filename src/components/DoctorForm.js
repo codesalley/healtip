@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { getProfile } from '../actions';
 import { saveToken } from '../helpers/storageHelper';
 
-const PatientForm = ({ getProfile }) => {
+const DoctorForm = ({ getProfile }) => {
   const history = useHistory();
 
   const fullName = useRef('');
@@ -13,6 +13,7 @@ const PatientForm = ({ getProfile }) => {
   const password = useRef('');
   const passwordConfirmation = useRef('');
   const location = useRef('');
+  const category = useRef('');
   const age = useRef('');
 
   const handleSignUp = async (e) => {
@@ -30,13 +31,14 @@ const PatientForm = ({ getProfile }) => {
           password: password.current.value,
           location: location.current.value,
           age: age.current.value,
-          type: 'user',
+          category: category.current.value,
+          type: 'doctor',
         }),
       });
       const data = await response.json();
       if (await response.status === 200) {
         const token = saveToken(data.s_token);
-        getProfile(token, 'user');
+        getProfile(token, 'doctor');
         return history.push('/');
       }
       return false;
@@ -45,7 +47,7 @@ const PatientForm = ({ getProfile }) => {
   };
 
   return (
-    <form className="flex flex-col gap-4 w-4/5" onSubmit={handleSignUp}>
+    <form className="flex flex-col gap-2 w-4/5" onSubmit={handleSignUp}>
       <div className="form-control">
         <p className="font-normal text-sm text-gray-500">
           Full Name
@@ -72,6 +74,12 @@ const PatientForm = ({ getProfile }) => {
       </div>
       <div className="form-control">
         <p className="font-normal text-sm text-gray-500">
+          Category
+        </p>
+        <input ref={category} type="text" name="location" className="border-gray-300 focus:outline-none focus:border-green-500 border-2 rounded text-gray-500 text-sm w-full px-1 py-1" required />
+      </div>
+      <div className="form-control">
+        <p className="font-normal text-sm text-gray-500">
           Location
         </p>
         <input ref={location} type="text" name="location" className="border-gray-300 focus:outline-none focus:border-green-500 border-2 rounded text-gray-500 text-sm w-full px-1 py-1" required />
@@ -87,7 +95,7 @@ const PatientForm = ({ getProfile }) => {
   );
 };
 
-PatientForm.propTypes = {
+DoctorForm.propTypes = {
   getProfile: PropTypes.func.isRequired,
 };
 
@@ -95,4 +103,4 @@ const mapDispatchToProps = {
   getProfile: (token, type) => getProfile(token, type),
 };
 
-export default connect(null, mapDispatchToProps)(PatientForm);
+export default connect(null, mapDispatchToProps)(DoctorForm);
