@@ -41,9 +41,3 @@ export const getProfile = (token, type) => async (dispatch) => {
   }
   return false;
 };
-
-//  {age: "22"
-// category: "Nurse Assistant"
-// email: "codesalley@gmail.com"
-// full_name: "iddrisu salley"
-// }
