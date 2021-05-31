@@ -37,7 +37,7 @@ const LoginForm = ({ user, getProfile }) => {
 
       const token = saveToken(data.s_token);
       await getProfile(token, user);
-      return histroy.push('/');
+      return histroy.push('/dashboard');
     }
     return handleError();
   };

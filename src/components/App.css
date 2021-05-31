@@ -1,6 +1,9 @@
 .sidebar {
-  background-color: #eff0f8;
   max-width: 30%;
+}
+
+.main-bg {
+  background-color: #eff0f8;
 }
 
 .icon {
@@ -15,6 +18,6 @@
 }
 @media screen and (min-width: 799px) {
   .sidebar {
-    max-width: 15%;
+    max-width: 10%;
   }
 }

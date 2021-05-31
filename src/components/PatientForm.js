@@ -37,7 +37,7 @@ const PatientForm = ({ getProfile }) => {
       if (await response.status === 200) {
         const token = saveToken(data.s_token);
         getProfile(token, 'user');
-        return history.push('/');
+        return history.push('/dashboard');
       }
       return false;
     }

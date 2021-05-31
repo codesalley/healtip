@@ -39,7 +39,7 @@ const DoctorForm = ({ getProfile }) => {
       if (await response.status === 200) {
         const token = saveToken(data.s_token);
         getProfile(token, 'doctor');
-        return history.push('/');
+        return history.push('/dashboard');
       }
       return false;
     }

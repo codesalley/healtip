@@ -15,7 +15,7 @@ function App() {
       <Route path="/login">
         <LogInPage />
       </Route>
-      <SecuredRoute exact path="/" component={HomePage} />
+      <SecuredRoute path="/" component={HomePage} />
 
     </Router>
 
