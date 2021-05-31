@@ -9,7 +9,7 @@ function App() {
   return (
 
     <Router>
-      <Route path="/singup">
+      <Route path="/signup">
         <SignUpPage />
       </Route>
       <Route path="/login">
