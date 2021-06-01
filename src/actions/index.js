@@ -1,3 +1,4 @@
+import { logOut } from '../helpers/storageHelper';
 import { GET_DOCTORS, GET_PROFILE } from '../utils/type';
 
 export const getDoctors = (token) => async (dispatch) => {
@@ -17,6 +18,9 @@ export const getDoctors = (token) => async (dispatch) => {
       type: GET_DOCTORS,
       payload: data,
     });
+  }
+  if (await response.status === 400) {
+    logOut();
   }
   return false;
 };
@@ -38,6 +42,9 @@ export const getProfile = (token, type) => async (dispatch) => {
       type: GET_PROFILE,
       payload: data,
     });
+  }
+  if (await profile.status === 400) {
+    logOut();
   }
   return false;
 };
