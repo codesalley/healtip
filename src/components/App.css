@@ -20,12 +20,6 @@
   color: #6d71f9;
 }
 
-/* .card-body {
-  max-width: 300px;
-  height: 350px;
-  overflow: hidden;
-} */
-
 .icon {
   width: 25px;
   height: 25px;
@@ -34,6 +28,12 @@
 @media screen and (min-width: 499px) {
   .sidebar {
     max-width: 20%;
+  }
+  .doc-logo {
+    max-width: 250px;
+  }
+  .card-body {
+    max-width: 300px;
   }
 }
 @media screen and (min-width: 799px) {

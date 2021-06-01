@@ -1,5 +1,6 @@
 import { logOut } from '../helpers/storageHelper';
-import { GET_DOCTORS, GET_PROFILE } from '../utils/type';
+import { headers } from '../utils/constants';
+import { GET_DOCTORS, GET_PROFILE, MAKE_APPOINTMENT } from '../utils/type';
 
 export const getDoctors = (token) => async (dispatch) => {
   const response = await fetch('http://127.0.0.1:3000/api/doctors', {
@@ -45,6 +46,31 @@ export const getProfile = (token, type) => async (dispatch) => {
   }
   if (await profile.status === 400) {
     logOut();
+  }
+  return false;
+};
+
+export const appointment = (doctor, user, info, time, category, location) => async (dispatch) => {
+  const appt = await fetch('http://127.0.0.1:3000/api/book', {
+    method: 'POST',
+    mode: 'cors',
+    headers,
+    body: JSON.stringify({
+      doctor_id: doctor,
+      user_id: user,
+      info,
+      time,
+      category,
+      location,
+    }),
+  });
+  if (appt.ok) {
+    const data = await appt.json();
+    console.log(data);
+    return dispatch({
+      type: MAKE_APPOINTMENT,
+      payload: data,
+    });
   }
   return false;
 };

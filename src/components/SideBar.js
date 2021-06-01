@@ -6,7 +6,6 @@ const SideBar = ({ toggle }) => (
   <div className={`${toggle ? 'sm:tranform sm:-translate-x-full hidden sm:flex duration-700 transition' : ''} sidebar bg-white py-2  sm:py-5 w-full h-screen flex flex-col justify-between items-center`}>
     <img src={logo} alt="personal" className="w-20" />
     <div className="flex flex-col gap-5 items-center">
-
       <NavLink to="/dashboard" className="text-gray-400 block fill-gray rounded-lg p-2 border-gray-400 border " activeClassName="bg-indigo-500 fill-white text-white">
         <svg xmlns="http://www.w3.org/2000/svg" className="bi bi-files-alt icon" viewBox="0 0 16 16">
           <path d="M11 0H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2 2 2 0 0 0 2-2V4a2 2 0 0 0-2-2 2 2 0 0 0-2-2zm2 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1V3zM2 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2z" />

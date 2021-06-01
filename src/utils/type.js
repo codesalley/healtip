@@ -1,2 +1,3 @@
 export const GET_PROFILE = 'GET_PROFILE';
 export const GET_DOCTORS = 'GET_DOCTORS';
+export const MAKE_APPOINTMENT = 'MAKE_APPOINTMENT';

@@ -13,7 +13,7 @@ const Dashboard = ({ getDoctor, doctors }) => {
   });
 
   return (
-    <div className="overflow-scroll flex flex-col gap-2 justify-center items-center ">
+    <div className="overflow-scroll grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
       {doctors.map((ele, index) => (
         <DoctorCard key={index.toString()} doctor={ele} />
       ))}
