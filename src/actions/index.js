@@ -1,6 +1,8 @@
 import { logOut } from '../helpers/storageHelper';
 import { headers } from '../utils/constants';
-import { GET_DOCTORS, GET_PROFILE, MAKE_APPOINTMENT } from '../utils/type';
+import {
+  GET_DOCTORS, GET_PROFILE, MAKE_APPOINTMENT, GET_APPOINTMENT,
+} from '../utils/type';
 
 export const getDoctors = (token) => async (dispatch) => {
   const response = await fetch('http://127.0.0.1:3000/api/doctors', {
@@ -22,6 +24,22 @@ export const getDoctors = (token) => async (dispatch) => {
   }
   if (await response.status === 400) {
     logOut();
+  }
+  return false;
+};
+
+export const getAllApt = () => async (dispatch) => {
+  const response = await fetch('http://127.0.0.1:3000/api/appoitments', {
+    mode: 'cors',
+    method: 'GET',
+    headers,
+  });
+  if (await response.ok) {
+    const data = await response.json();
+    return dispatch({
+      type: GET_APPOINTMENT,
+      payload: data,
+    });
   }
   return false;
 };

@@ -40,8 +40,6 @@ const BookForm = ({
     }
   };
 
-  console.log(profile);
-
   return doctor ? (
     <div className="bg-white h-full flex flex-col items-center rounded-md px-5 gap-1 py-3 overflow-y-scroll">
       <h3 className="text-md text-gray-500 font-semibold text-center py-1">

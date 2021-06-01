@@ -23,8 +23,6 @@ const HomePage = ({ profile }) => {
     location.pathname === '/' ? history.push('/dashboard') : null;
   });
 
-  console.log(profile);
-
   const routes = [
     {
       name: 'Home',

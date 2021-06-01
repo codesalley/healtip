@@ -12,7 +12,6 @@ const DoctorCard = ({ doctor, profile, getProfile }) => {
   const isLiked = (id) => {
     const res = [];
     profile.favorites.map((e) => res.push(e.id));
-    console.log(res);
     if (res.includes(id)) {
       return true;
     }
@@ -32,9 +31,6 @@ const DoctorCard = ({ doctor, profile, getProfile }) => {
       await getProfile(token);
     }
   };
-  console.log(isLiked(doctor.id));
-
-  console.log(profile.favorites);
 
   return (
     <>
