@@ -16,7 +16,6 @@
 }
 
 .indi-text {
-  
   color: #6d71f9;
 }
 
@@ -33,13 +32,16 @@
   .sidebar {
     max-width: 20%;
   }
+
   .doc-logo {
     max-width: 250px;
   }
+
   .card-body {
     max-width: 300px;
   }
 }
+
 @media screen and (min-width: 799px) {
   .sidebar {
     max-width: 10%;

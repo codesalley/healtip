@@ -84,7 +84,7 @@ export const appointment = (doctor, user, info, time, category, location) => asy
   });
   if (appt.ok) {
     const data = await appt.json();
-    console.log(data);
+
     return dispatch({
       type: MAKE_APPOINTMENT,
       payload: data,
