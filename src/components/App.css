@@ -20,6 +20,10 @@
   color: #6d71f9;
 }
 
+.apt-card {
+  max-width: 500px;
+}
+
 .icon {
   width: 25px;
   height: 25px;

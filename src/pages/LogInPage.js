@@ -5,8 +5,8 @@ import LoginForm from '../components/LoginForm';
 const LogInPage = () => {
   const [userType, setType] = useState('user');
   return (
-    <div className="w-screen h-screen flex flex-col gap-2 items-center justify-center bg-gray-50">
-      <div className="flex flex-col gap-2 max-w-sm w-full items-center p-2">
+    <div className="w-screen  h-screen flex flex-col gap-2 items-center justify-center bg-gray-50">
+      <div className="flex flex-col gap-2 max-w-sm w-full items-center p-2 border rounded-xl md:px-5 md:py-10 px-3 py-5 border-gray-300 shadow-2xl">
         <h2 className="text-center text-4xl font-bold text-gray-700">
           SIGN IN
         </h2>

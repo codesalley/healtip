@@ -6,7 +6,7 @@ import { getUser } from './storageHelper';
 const SecuredRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={(props) => (getUser() ? <Component {...props} /> : <Redirect to="/signup" />)}
+    render={(props) => (getUser() ? <Component {...props} /> : <Redirect to="/login" />)}
   />
 );
 

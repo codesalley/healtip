@@ -9,7 +9,6 @@ import DoctorCard from './DoctorCard';
 const Dashboard = ({ getDoctor, doctors }) => {
   useState(() => {
     const token = getToken();
-    console.log(token);
     getDoctor(token);
   });
 
