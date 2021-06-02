@@ -5,7 +5,7 @@ import {
 } from '../utils/type';
 
 export const getDoctors = (token) => async (dispatch) => {
-  const response = await fetch('http://127.0.0.1:3000/api/doctors', {
+  const response = await fetch('https://healtip.herokuapp.com/api/doctors', {
     method: 'GET',
     mode: 'cors',
     headers: {
@@ -29,7 +29,7 @@ export const getDoctors = (token) => async (dispatch) => {
 };
 
 export const getAllApt = () => async (dispatch) => {
-  const response = await fetch('http://127.0.0.1:3000/api/appoitments', {
+  const response = await fetch('https://healtip.herokuapp.com/api/appoitments', {
     mode: 'cors',
     method: 'GET',
     headers,
@@ -45,7 +45,7 @@ export const getAllApt = () => async (dispatch) => {
 };
 
 export const getProfile = (token, type) => async (dispatch) => {
-  const profile = await fetch('http://127.0.0.1:3000/api/me', {
+  const profile = await fetch('https://healtip.herokuapp.com/api/me', {
     method: 'GET',
     mode: 'cors',
     headers: {
@@ -69,7 +69,7 @@ export const getProfile = (token, type) => async (dispatch) => {
 };
 
 export const appointment = (doctor, user, info, time, category, location) => async (dispatch) => {
-  const appt = await fetch('http://127.0.0.1:3000/api/book', {
+  const appt = await fetch('https://healtip.herokuapp.com/api/book', {
     method: 'POST',
     mode: 'cors',
     headers,

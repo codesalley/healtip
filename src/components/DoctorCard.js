@@ -19,7 +19,7 @@ const DoctorCard = ({ doctor, profile, getProfile }) => {
   };
   const handleBookForm = (doctor) => (history.push(`/book/${doctor}`));
   const handleFavorite = async (id) => {
-    const res = await fetch(`http://127.0.0.1:3000/api/fav/${id}`, {
+    const res = await fetch(`https://healtip.herokuapp.com/api/fav/${id}`, {
       method: 'PUT',
       mode: 'cors',
       headers,

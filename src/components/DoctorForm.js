@@ -20,7 +20,7 @@ const DoctorForm = ({ getProfile }) => {
     e.preventDefault();
     if (password.current.value === passwordConfirmation.current.value
       && email.current.value !== '' && age.current.value !== '' && location.current.value !== '') {
-      const response = await fetch('http://127.0.0.1:3000/api/singup', {
+      const response = await fetch('https://healtip.herokuapp.com/api/singup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
