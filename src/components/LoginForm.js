@@ -45,8 +45,8 @@ const LoginForm = ({ user, getProfile, getAllApointments }) => {
         handleError();
       }
     } catch (error) {
-      console.warn(error);
       handleError();
+      return error;
     }
     return false;
   };
