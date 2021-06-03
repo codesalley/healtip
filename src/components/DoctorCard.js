@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable react/destructuring-assignment */
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
@@ -11,7 +12,8 @@ const DoctorCard = ({ doctor, profile, getProfile }) => {
   const history = useHistory();
   const isLiked = (id) => {
     const res = [];
-    profile.favorites.map((e) => res.push(e.id));
+
+    profile.favorites ? profile.favorites.map((e) => res.push(e.id)) : null;
     if (res.includes(id)) {
       return true;
     }
@@ -19,7 +21,7 @@ const DoctorCard = ({ doctor, profile, getProfile }) => {
   };
   const handleBookForm = (doctor) => (history.push(`/book/${doctor}`));
   const handleFavorite = async (id) => {
-    const res = await fetch(`https://healtip.herokuapp.com/api/fav/${id}`, {
+    const res = await fetch(`https://pacific-plateau-70387.herokuapp.com/api/fav/${id}`, {
       method: 'PUT',
       mode: 'cors',
       headers,

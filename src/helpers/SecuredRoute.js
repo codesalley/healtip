@@ -11,7 +11,7 @@ const SecuredRoute = ({ component: Component, ...rest }) => (
 );
 
 SecuredRoute.propTypes = {
-  component: PropTypes.func.isRequired,
+  component: PropTypes.shape({}).isRequired,
 };
 
 export default SecuredRoute;

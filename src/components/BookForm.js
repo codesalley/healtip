@@ -3,12 +3,12 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getDoctors, appointment } from '../actions';
+import { getDoctors, appointment, getAllApt } from '../actions';
 import { getToken } from '../helpers/storageHelper';
 import { typeOfAppointments } from '../utils/constants';
 
 const BookForm = ({
-  profile, doctors, getDoctor, book,
+  profile, doctors, getDoctor, book, getAppointments,
 }) => {
   const [doctor, setDoctor] = useState();
   const { id } = useParams();
@@ -29,15 +29,22 @@ const BookForm = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await book(doctor[0].id,
-      profile.id,
-      aptInfo.current.value,
-      JSON.stringify([aptDate.current.value]),
-      aptCategory.current.value,
-      aptLocation.current.value);
-    if (await res.payload) {
-      history.goBack();
+    try {
+      const res = await book(doctor[0].id,
+        profile.id,
+        aptInfo.current.value,
+        JSON.stringify([aptDate.current.value]),
+        aptCategory.current.value,
+        aptLocation.current.value);
+      if (await res.payload) {
+        const token = getToken();
+        getAppointments(token);
+        history.goBack();
+      }
+    } catch (error) {
+      return process.exit;
     }
+    return false;
   };
 
   return doctor ? (
@@ -99,6 +106,7 @@ BookForm.propTypes = {
   getDoctor: PropTypes.func.isRequired,
   doctors: PropTypes.shape(PropTypes.object).isRequired,
   book: PropTypes.func.isRequired,
+  getAppointments: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -110,6 +118,7 @@ const mapDispatchToProps = {
   book: (doctor, user, info, time, category, location) => (
     appointment(doctor, user, info, time, category, location)
   ),
+  getAppointments: (token) => getAllApt(token),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookForm);

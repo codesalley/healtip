@@ -69,7 +69,7 @@ const HomePage = ({ profile }) => {
             <p className="font-bold text-gray-500 italic inline-block">{profile.full_name}</p>
           </h3>
 
-          <h3 className="text-gray-500 flex items-center font-semibold text-xs sm:text-xl"> All Doctors </h3>
+          <h3 className="text-gray-500 flex items-center font-semibold text-lg sm:text-xl"> HealTip </h3>
         </div>
         <div className="h-full overflow-scroll lg:py-5 py-3">
           <Switch>

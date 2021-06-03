@@ -5,7 +5,7 @@ import {
 } from '../utils/type';
 
 export const getDoctors = (token) => async (dispatch) => {
-  const response = await fetch('https://healtip.herokuapp.com/api/doctors', {
+  const response = await fetch('https://pacific-plateau-70387.herokuapp.com/api/doctors', {
     method: 'GET',
     mode: 'cors',
     headers: {
@@ -28,11 +28,15 @@ export const getDoctors = (token) => async (dispatch) => {
   return false;
 };
 
-export const getAllApt = () => async (dispatch) => {
-  const response = await fetch('https://healtip.herokuapp.com/api/appoitments', {
+export const getAllApt = (token) => async (dispatch) => {
+  const response = await fetch('https://pacific-plateau-70387.herokuapp.com/api/appoitments', {
     mode: 'cors',
     method: 'GET',
-    headers,
+    headers: {
+      'Content-Type': 'application/json',
+      type: 'user',
+      's-token': token,
+    },
   });
   if (await response.ok) {
     const data = await response.json();
@@ -45,7 +49,7 @@ export const getAllApt = () => async (dispatch) => {
 };
 
 export const getProfile = (token, type) => async (dispatch) => {
-  const profile = await fetch('https://healtip.herokuapp.com/api/me', {
+  const profile = await fetch('https://pacific-plateau-70387.herokuapp.com/api/me', {
     method: 'GET',
     mode: 'cors',
     headers: {
@@ -69,7 +73,7 @@ export const getProfile = (token, type) => async (dispatch) => {
 };
 
 export const appointment = (doctor, user, info, time, category, location) => async (dispatch) => {
-  const appt = await fetch('https://healtip.herokuapp.com/api/book', {
+  const appt = await fetch('https://pacific-plateau-70387.herokuapp.com/api/book', {
     method: 'POST',
     mode: 'cors',
     headers,

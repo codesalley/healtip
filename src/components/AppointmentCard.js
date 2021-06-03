@@ -3,7 +3,7 @@ import { format, parseJSON } from 'date-fns';
 
 const AppointmentCard = ({ apt }) => (
   <div className="bg-white overflow-hidden flex justify-between max-w-sm items-center w-full rounded-md px-2 py-3 md:py-1">
-    {parseJSON(apt.time) > Date.now()
+    {parseJSON(apt.time) < Date.now()
       ? (
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="bi bi-exclamation-circle fill-red text-xs md:text-sm w-8" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -28,7 +28,7 @@ const AppointmentCard = ({ apt }) => (
         {' '}
       </p>
     </div>
-    {parseJSON(apt.time) > Date.now()
+    {parseJSON(apt.time) < Date.now()
       ? <p className="md:text-sm w-16  text-xs text-center font-medium text-red-300 bg-red-100 h-8 py-2 px-1 rounded-md"> Past </p>
 
       : <p className="md:text-sm w-16  text-xs text-center font-medium text-indigo-400 bg-indigo-100 py-2 px-1 rounded-md">Pending </p>}

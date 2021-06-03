@@ -20,7 +20,7 @@ const DoctorForm = ({ getProfile }) => {
     e.preventDefault();
     if (password.current.value === passwordConfirmation.current.value
       && email.current.value !== '' && age.current.value !== '' && location.current.value !== '') {
-      const response = await fetch('https://healtip.herokuapp.com/api/singup', {
+      const response = await fetch('https://pacific-plateau-70387.herokuapp.com/api/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
