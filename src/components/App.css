@@ -1,0 +1,49 @@
+.sidebar {
+  max-width: 30%;
+}
+
+.main-bg {
+  background-color: #eff0f8;
+}
+
+.doc-logo {
+  height: 90px;
+  max-width: 300px;
+}
+
+.indi-bg {
+  background-color: #6d71f9;
+}
+
+.indi-text {
+  color: #6d71f9;
+}
+
+.apt-card {
+  max-width: 500px;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+@media screen and (min-width: 499px) {
+  .sidebar {
+    max-width: 20%;
+  }
+
+  .doc-logo {
+    max-width: 250px;
+  }
+
+  .card-body {
+    max-width: 300px;
+  }
+}
+
+@media screen and (min-width: 799px) {
+  .sidebar {
+    max-width: 10%;
+  }
+}
