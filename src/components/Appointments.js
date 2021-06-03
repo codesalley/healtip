@@ -2,13 +2,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AppointmentCard from './AppointmentCard';
 import { getAllApt } from '../actions';
-import { getToken } from '../helpers/storageHelper';
 
 const Appointments = ({ appointments, getAllAppointments }) => {
-  console.log(appointments);
-
-  const token = getToken();
-  getAllAppointments(token);
+  console.table([getAllAppointments]);
 
   return (appointments.length > 0 ? (
 
@@ -20,7 +16,7 @@ const Appointments = ({ appointments, getAllAppointments }) => {
 
     </div>
 
-  ) : <h3> loading... </h3>);
+  ) : <h3 className="text-center"> No Appointments... </h3>);
 };
 
 Appointments.propTypes = {
